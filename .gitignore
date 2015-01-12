@@ -1,0 +1,6 @@
+build
+*.plist
+*.xcodeproj
+Makefile
+moc_*
+JoyPrompter.app
