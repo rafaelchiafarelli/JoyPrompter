@@ -59,11 +59,11 @@ void TeleprompterWindow::keyPressEvent(QKeyEvent *event)
 		case Qt::Key_Space:
 			if (this->timerStarted) {
 				killTimer(this->timer->timerId());
-				this->timerStarted=false;
 			} else {
 				this->timer->start(0);
-				this->timerStarted=true;
 			}
+      			this->timer->blockSignals(this->timerStarted);
+            		this->timerStarted= !this->timerStarted;
 			break;
 		case Qt::Key_Down:
 			if (this->speed<10)
