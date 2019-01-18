@@ -1,6 +1,6 @@
-#include <QSpinBox>
-#include <QLabel>
-#include <QComboBox>
+#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QComboBox>
 
 #include "controls_menu.h"
 
@@ -8,7 +8,7 @@ ControlsMenu::ControlsMenu(QWidget *parent)
 : QHBoxLayout(parent)
 {
 	padding = new QSpinBox();
-	padding->setMaximum(300);
+    padding->setMaximum(3000);
 	padding->setValue(150);
 	padding->setFixedSize(padding->sizeHint());
 	

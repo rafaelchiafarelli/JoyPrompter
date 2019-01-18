@@ -1,6 +1,6 @@
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QWidget>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QDesktopWidget>
+#include <QtWidgets/QWidget>
 #include <QIcon>
 
 #include "application_window.h"

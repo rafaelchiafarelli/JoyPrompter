@@ -1,9 +1,9 @@
 #ifndef APPLICATION_WINDOW_H
 #define APPLICATION_WINDOW_H
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include <QDragEnterEvent>
-#include <QDropEvent>;
+#include <QDropEvent>
 
 #include "editor_window.h"
 #include "teleprompter_window.h"

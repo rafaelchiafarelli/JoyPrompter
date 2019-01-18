@@ -1,7 +1,7 @@
 #include <sstream>
 
 #include <QCursor>
-#include <QScrollBar>
+#include <QtWidgets/QScrollBar>
 #include <QString>
 
 #include "teleprompter_window.h"
@@ -30,6 +30,8 @@ TeleprompterWindow::TeleprompterWindow(QWidget *parent,QWidget *setupHandler)
 	
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(scrollText()));
+    timer->blockSignals(true);
+    timer->setInterval(20); //50Hz
 	timerStarted=false;
 }
 
@@ -46,11 +48,31 @@ void TeleprompterWindow::setPadding(int padding)
 	this->setStyleSheet(paddingString);
 }
 
+
+void TeleprompterWindow::keyReleaseEvent(QKeyEvent *event)
+{
+    if (event->type() == event->KeyRelease)
+    {
+
+        switch (event->key()) {
+            case Qt::Key_Left:
+            case Qt::Key_Right:
+                 speed = old_speed;
+            break;
+
+        }
+
+    }
+
+}
+
 void TeleprompterWindow::keyPressEvent(QKeyEvent *event)
 {
 	switch (event->key()) {
 		case Qt::Key_Escape:
-			killTimer(this->timer->timerId());
+            this->timer->stop();
+            this->timer->blockSignals(true);
+            killTimer(this->timer->timerId());
 			this->timerStarted = false;
 			this->setReadOnly(false);
 			this->hide();
@@ -58,13 +80,24 @@ void TeleprompterWindow::keyPressEvent(QKeyEvent *event)
 			break;
 		case Qt::Key_Space:
 			if (this->timerStarted) {
+                this->timer->stop();
 				killTimer(this->timer->timerId());
-				this->timerStarted=false;
 			} else {
 				this->timer->start(0);
-				this->timerStarted=true;
 			}
+            this->timer->blockSignals(this->timerStarted);
+            this->timerStarted = !this->timerStarted;
 			break;
+
+        case Qt::Key_Left:
+            this->old_speed = speed;
+            speed = -10;
+            break;
+        case Qt::Key_Right:
+            this->old_speed = speed;
+            speed = 10;
+            break;
+
 		case Qt::Key_Down:
 			if (this->speed<10)
 				this->speed += 1;
@@ -116,5 +149,6 @@ void TeleprompterWindow::wheelEvent(QWheelEvent *event){
 
 void TeleprompterWindow::scrollText()
 {
+
 	this->verticalScrollBar()->setValue(this->verticalScrollBar()->value()+this->speed);
 }

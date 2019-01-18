@@ -10,8 +10,8 @@
 #ifndef EDITOR_WINDOW_H
 #define EDITOR_WINDOW_H
 
-#include <QWidget>
-#include <QTextEdit>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QTextEdit>
 #include <QDropEvent>
 
 class EditorWindow : public QTextEdit

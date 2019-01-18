@@ -1,7 +1,7 @@
 #ifndef MENUBAR_H
 #define MENUBAR_H
 
-#include <QMenuBar>
+#include <QtWidgets/QMenuBar>
 
 class MenuBar : public QMenuBar
 {

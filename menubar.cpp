@@ -1,6 +1,6 @@
-#include <QApplication>
-#include <QAction>
-#include <QMenu>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QMenu>
 
 #include "menubar.h"
 

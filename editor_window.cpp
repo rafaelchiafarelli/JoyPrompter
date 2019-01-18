@@ -44,7 +44,7 @@ void EditorWindow::dropEvent(QDropEvent *event)
 //		this->setPlainText(stream.readAll());
 //		file.close();
 //	}
-	if (event->mimeData()->hasText())
-		this->setPlainText(event->mimeData()->text());
+//	if (event->mimeData()->hasText())
+//		this->setPlainText(event->mimeData()->text());
 
 }

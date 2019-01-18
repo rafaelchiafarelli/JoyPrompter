@@ -1,9 +1,9 @@
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QFileDialog>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QFileDialog>
 #include <QTextCursor>
 #include <QTextStream>
-#include <QApplication>
+#include <QtWidgets/QApplication>
 #include <QFile>
 #include <QIODevice>
 
@@ -14,7 +14,7 @@
 ApplicationWindow::ApplicationWindow(QWidget *parent)
 : QWidget(parent)
 {
-	teleWindow = new TeleprompterWindow(0,this);
+    teleWindow = new TeleprompterWindow(nullptr,this);
 	teleWindow->setWindowTitle("JoyPrompter - Full Screen");
 	this->setAcceptDrops(true);
 	
