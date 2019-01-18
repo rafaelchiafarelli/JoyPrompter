@@ -1,5 +1,19 @@
 #JoyPrompter Source
 
+## changes from the original version
+	padding limit is 3000 pixels
+	timer interval is 20 milisseconds
+	Left key will scroll back at the maximum speed while is pressed
+	Right key will scroll forward ar the maximum speed while is pressed
+
+## Windows 10 + Qt4
+
+You'll need to install Qt.
+I believe any version is going to work
+
+Compile and run the application
+
+
 ## Mac OS X
 
 You'll need a set of developer tools for compiling JoyPrompter on Mac. The binary can be built with any qt-compatible c++ compiler, but the build script generates an Xcode project, and hence uses the g++ installed with Xcode, by default.
